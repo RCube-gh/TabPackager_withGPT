@@ -1,0 +1,2 @@
+tabpackager with ChatGPT
+JavaScript歴30分の奴がchatgptでサイト作る
