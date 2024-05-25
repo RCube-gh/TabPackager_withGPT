@@ -1,0 +1,243 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fffacd;
+    min-height: 100vh; /* Ensure body covers the entire viewport height */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    margin-bottom: 64px;
+    text-align: center;
+    width: 100%; /* Ensure header spans the full width */
+}
+
+footer {
+    text-align: center;
+    padding: 5rem 0;
+    margin-top: 256px;
+    background-color: #333;
+    color: #fff;
+    width: 100%; /* Ensure footer spans the full width */
+    /*position: fixed; /* Stick footer to the bottom */
+    bottom: 0;
+}
+
+
+h1 {
+    text-align: center;
+}
+#group-detail-title{
+    font-size: 32px;
+    margin-top: 12px;
+}
+
+.group-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    width: 80%;
+    margin: 20px 0;
+}
+.group-container .group {
+    cursor: grab;
+}
+.group-container .group:active {
+    cursor: grabbing;
+}
+
+
+
+.group {
+    display: flex;
+    font-weight: bold;
+    max-width: 90%;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    border: 5px solid #191970;
+    border-radius: 10px;
+    background-color: #e0ffff;
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: transform 0.15s ease-in-out; /* Transition for scale effect */
+}
+.group:hover {
+    transform: scale(1.05); /* Scale up by 10% on hover */
+}
+.group.add-group {
+    cursor: default;
+}
+
+.group span {
+    font-size: 2em;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fffacd;
+    padding: 20px;
+    border: 8px solid #ffa500;
+    width: 80%;
+    max-width: 600px;
+    height: 80%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Ensure relative positioning for absolute positioning of button */
+}
+
+.add-group-modal .modal-content {
+    max-width: 400px; /* Smaller width for adding group modal */
+    height: auto; /* Adjust height if needed */
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-end; /* Align close button to the top right */
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.func-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 5px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out; /* Smooth transition for transform */
+}
+
+.func-button i {
+    margin-right: 5px; /* Adjust spacing between icon and text */
+}
+.func-button i.fa {
+    font-size: 24px; /* Adjust the size as needed */
+}
+.func-button:hover {
+    transform: scale(1.1); /* Scale the button by 10% on hover */
+}
+
+#hyperlink-container {
+    margin-top: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    width: 100%;
+    border-radius: 10px;
+    border: 5px solid gray;
+    background-color: #ccc;
+}
+
+.hyperlink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #ccc;
+    margin-bottom: 3px;
+}
+
+.hyperlink-button {
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    flex-grow: 1;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.hyperlink-button:hover {
+    background-color: #ddd;
+}
+
+.hyperlink button {
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.hyperlink button:hover {
+    background-color: darkred;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    font-size: 2em;
+    margin-bottom: 15px; /* Additional margin to separate input and button */
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.sortable-ghost {
+    opacity: 1; /* Full opacity */
+    background-color: rgba(93, 137, 225, 0.8); /* Slightly transparent background */
+    border: 2px dashed #aaa; /* Optional: add a border to differentiate the dragged item */
+}
+
+.rename-group-button {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+    padding: 5px;
+}
+.rename-group-button:hover {
+    color: #555;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Tab Packager</h1>
+    </header>
+    <div class="group-container" id="group-container">
+        <div class="group add-group" id="add-group" onclick="showGroupInput()">
+            <span>+</span>
+        </div>
+    </div>
+
+    <!-- Group Input Modal -->
+    <div id="group-input-modal" class="modal" onclick="handleModalClick(event)">
+        <div class="modal-content add-group-modal">
+            <span class="close" onclick="hideGroupInput()">&times;</span>
+            <input type="text" id="group-name" placeholder="Group Name" autocomplete="off">
+            <button onclick="addGroup()">Add Group</button>
+        </div>
+    </div>
+
+    <!-- Group Detail View -->
+    <div id="group-detail-view" class="modal" onclick="handleModalClick(event)">
+        <div class="modal-content">
+            <span class="close" onclick="hideGroupDetail()">&times;</span>
+            <h2 id="group-detail-title"></h2>
+            <!-- New button for renaming group -->
+            <button onclick="renameGroup()" class="rename-group-button"><i class="fas fa-pencil-alt"></i></button>
+            <div class="button-container">
+                <button onclick="addHyperlink()" class="func-button"><i class="fas fa-plus fa"></i> Add Hyperlink</button>
+                <button class="delete-group func-button" onclick="deleteGroup()"><i class="fas fa-trash-alt fa"></i> Delete Group</button>
+                <button onclick="extractAll()" class="func-button"><i class="fas fa-external-link-alt fa"></i> Extract ALL</button>
+                <button class="func-button" onclick="closeTabs()"><i class="fas fa-window-close fa"></i> Close Tabs</button>
+            </div>
+            <div id="hyperlink-container"></div>
+        </div>
+    </div>
+    
+
+    <script src="scripts.js"></script>
+    <footer>
+        <p>&copy; 2024 Cube. All rights reserved.</p>
+    </footer>
+</body>
+</html>
